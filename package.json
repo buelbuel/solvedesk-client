@@ -1,0 +1,26 @@
+{
+  "name": "clientsjs",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@solidjs/meta": "^0.29.4",
+    "@solidjs/router": "^0.13.6",
+    "prettier": "3.3.2",
+    "solid-dismiss": "^1.8.2",
+    "solid-icons": "^1.1.0",
+    "solid-js": "^1.8.17"
+  },
+  "devDependencies": {
+    "sass": "^1.77.6",
+    "typescript": "^5.2.2",
+    "vite": "^5.3.1",
+    "vite-plugin-solid": "^2.10.2",
+    "vite-tsconfig-paths": "^4.3.2"
+  }
+}

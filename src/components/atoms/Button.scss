@@ -1,0 +1,44 @@
+/** @source components/atoms/Buttons.scss */
+
+@import 'src/assets/sass/variables';
+@import 'src/assets/sass/colors';
+
+button {
+	background-color: map-get(map-get($brand-colors, primary), dark);
+	color: map-get($text-colors, dark);
+	border: none;
+	border-radius: 0.5rem;
+	padding: 0.6rem 1.2rem;
+	font-size: $font-size-sm;
+	font-weight: 600;
+	font-family: inherit;
+	cursor: pointer;
+	filter: $shadow-sm;
+	transition: all 0.2s;
+
+	&:hover {
+		background-color: darken(
+			map-get(map-get($brand-colors, primary), dark),
+			5%
+		);
+		filter: $shadow-md;
+	}
+
+	&:focus,
+	&:focus-visible {
+		outline: 2px auto -webkit-focus-ring-color;
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	button {
+		background-color: map-get(map-get($brand-colors, primary), light);
+		color: map-get($text-colors, light);
+		&:hover {
+			background-color: darken(
+				map-get(map-get($brand-colors, primary), light),
+				5%
+			);
+		}
+	}
+}

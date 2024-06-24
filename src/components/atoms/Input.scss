@@ -1,0 +1,39 @@
+/** @source components/atoms/Input.scss */
+
+@import 'src/assets/sass/variables';
+@import 'src/assets/sass/colors';
+
+input {
+	display: block;
+	padding: 0.375rem 0;
+	text-indent: 1em;
+    border-radius: 0.5rem;
+    width: 100%;
+	border: 1px solid map-get($bg-colors, dark-100);
+	font-size: $font-size-sm;
+	line-height: 1.5em;
+	background-color: map-get($bg-colors, dark-400);
+	transition: all 0.2s;
+
+	&:hover {
+		background-color: map-get($bg-colors, dark-300);
+	}
+
+	&:focus,
+	&:focus-visible {
+		outline: 2px auto -webkit-focus-ring-color;
+	}
+
+	@media (min-width: $break-sm) {
+        width: auto;
+	}
+
+	@media (prefers-color-scheme: light) {
+        border: 1px solid map-get($bg-colors, light-500);
+		background-color: map-get($bg-colors, light-50);
+
+        &:hover {
+            background-color: map-get($bg-colors, light-100);
+        }
+	}
+}

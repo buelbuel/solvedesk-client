@@ -1,0 +1,46 @@
+/** @source assets/sass/_colors.scss */
+
+// Brand Colors
+$brand-colors: (
+	primary: (
+		dark: #0056b3,
+		light: #4dabf7
+	),
+	secondary: (
+		dark: #343a40,
+		light: #d8dbe0
+	)
+);
+
+// Text Colors
+$text-colors: (
+	primary: #212529,
+	light: #f8f9fa
+);
+
+// Background Colors
+$bg-colors: (
+	dark: #585f63,
+	light: #ffffff,
+	light-50: #f7f7f7,
+	light-100: #efefef,
+	light-200: #e0e0e0,
+	light-300: #d1d1d1,
+	light-400: #c2c2c2,
+	light-500: #b3b3b3,
+	dark-50: #50565a,
+	dark-100: #484d51,
+	dark-200: #404448,
+	dark-300: #383b3f,
+	dark-400: #303236,
+	dark-500: #28292d
+	
+);
+
+// Accent Colors
+$accent-colors: (
+	success: #28a745,
+	danger: #dc3545,
+	info: #17a2b8,
+	warning: #ffc107
+);

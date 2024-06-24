@@ -1,0 +1,37 @@
+/** @source assets/sass/_abstracts/_base.scss */
+
+:root {
+	color-scheme: light dark;
+	color: map-get($text-colors, dark);
+	background-color: map-get($bg-colors, dark-500);
+	font-family: $font-family;
+	font-size: $font-size;
+	font-style: $font-style;
+	font-variant: $font-variant;
+	font-weight: $font-weight;
+	line-height: $line-height;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a {
+	font-weight: 500;
+	color: map-get(map-get($brand-colors, primary), light);
+	text-decoration: inherit;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		color: map-get($text-colors, dark);
+		background-color: map-get($bg-colors, light);
+	}
+	a {
+		color: map-get(map-get($brand-colors, primary), dark);
+	}
+}

@@ -1,0 +1,14 @@
+/** @source pages/auth/Login.scss */
+
+@import 'src/assets/sass/variables';
+@import 'src/assets/sass/colors';
+
+.auth-page {
+    //
+}
+
+@media (prefers-color-scheme: light) {
+	.auth-page .container {
+		//background-color: darken(map-get($bg-colors, light), 5%);
+	}
+}
