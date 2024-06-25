@@ -10,7 +10,7 @@ function Home() {
 			<Title>SolveDesk</Title>
 			<Link rel="canonical" href="http://solvedesk.de/" />
 
-			<div class="home-page">
+			<section class="home-page">
 				<div class="container">
 					<div>
 						<a href="https://vitejs.dev" target="_blank">
@@ -31,7 +31,7 @@ function Home() {
 						Click on the Vite and Solid logos to learn more
 					</p>
 				</div>
-			</div>
+			</section>
 		</MetaProvider>
 	)
 }

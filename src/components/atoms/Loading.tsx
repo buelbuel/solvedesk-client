@@ -1,7 +1,7 @@
 import './Loading.scss'
 
 const Loading = () => {
-	return <p>Loading...</p>
+	return <p class='loading'>Loading...</p>
 }
 
 export default Loading

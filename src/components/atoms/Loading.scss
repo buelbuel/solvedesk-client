@@ -2,3 +2,7 @@
 
 @import 'src/assets/sass/variables';
 @import 'src/assets/sass/colors';
+
+.loading {
+    color: map-get($accent-colors, warning)
+}

@@ -17,7 +17,7 @@ const Input = (props: InputProps) => {
 			placeholder={props.placeholder}
 			autocomplete={props.autocomplete}
 			onInput={props.onInput}
-			class={props.className || 'form-control form-control-lg'}
+			class={`${props.className || ''} input`.trim()}
 		/>
 	)
 }

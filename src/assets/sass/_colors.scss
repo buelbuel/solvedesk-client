@@ -15,7 +15,20 @@ $brand-colors: (
 // Text Colors
 $text-colors: (
 	primary: #212529,
-	light: #f8f9fa
+	light: #f8f9fa,
+	light-50: #fafbfc,
+	light-100: #f2f3f5,
+	light-200: #eaecee,
+	light-300: #e1e3e6,
+	light-400: #d8dadf,
+	light-500: #cfd2d8,
+	dark: #969ea5,
+	dark-50: #818891,
+	dark-100: #6f767b,
+	dark-200: #5f656f,
+	dark-300: #42474a,
+	dark-400: #313739,
+	dark-500: #292d2f,
 );
 
 // Background Colors
@@ -34,7 +47,6 @@ $bg-colors: (
 	dark-300: #383b3f,
 	dark-400: #303236,
 	dark-500: #28292d
-	
 );
 
 // Accent Colors

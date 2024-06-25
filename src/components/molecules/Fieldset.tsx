@@ -15,7 +15,7 @@ interface FieldsetProps {
 
 const Fieldset = (props: FieldsetProps) => {
 	return (
-		<fieldset class={props.className || 'form-group'}>
+		<fieldset class={`${props.className || ''} fieldset`.trim()}>
 			<Label for={props.labelFor}>{props.labelText}</Label>
 			<Input
 				type={props.inputType}

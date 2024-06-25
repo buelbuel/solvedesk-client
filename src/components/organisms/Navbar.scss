@@ -1,0 +1,72 @@
+/** @source components/oprganisms/Navbar.scss */
+
+@import 'src/assets/sass/variables';
+@import 'src/assets/sass/colors';
+
+.app-navigation {
+	position: sticky;
+	display: block;
+	top: 0;
+	background-color: rgba(255, 255, 255, 0.5);
+	backdrop-filter: blur(1rem);
+	-webkit-backdrop-filter: blur(1rem);
+	width: 100vw;
+	overflow: hidden;
+
+	nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.logo {
+			max-width: 256px;
+		}
+		.dropdown-menu-button {
+			color: map-get($text-colors, dark);
+			transition: all 0.5s;
+			&:hover {
+				color: map-get($text-colors, dark-300);
+			}
+		}
+	}
+
+	.dropdown {
+		position: relative;
+		padding: 1rem 0;
+		filter: $shadow-sm;
+		display: flex;
+		justify-content: center;
+		gap: 0.5rem;
+
+		.dropdown-menu {
+			padding: 1rem 2rem;
+			background-color: rgba(255, 255, 255, 0.9);
+			list-style: none;
+			width: calc(25% - 2rem);
+		}
+	}
+}
+
+.fade-enter {
+	transform: translateY(3rem);
+	opacity: 0.1;
+}
+.fade-enter-to {
+	transform: translateY(0);
+	opacity: 1;
+}
+.fade-exit {
+	transform: translateY(0);
+	opacity: 1;
+}
+.fade-exit-to {
+	transform: translateY(3rem);
+	opacity: 0;
+}
+.fade-enter-to,
+.fade-exit,
+.fade-exit-to {
+	transition:
+		transform 200ms,
+		opacity 200ms;
+}

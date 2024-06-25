@@ -15,7 +15,7 @@ const Button = (props: ButtonProps) => {
 			type={props.type}
 			onClick={props.onClick}
 			disabled={props.disabled}
-			class={props.className || 'btn btn-lg btn-primary pull-xs-right'}
+			class={`${props.className || ''} button`.trim()}
 		>
 			{props.children}
 		</button>

@@ -9,13 +9,13 @@ function Login() {
 			<Title>Login SolveDesk</Title>
 			<Link rel="canonical" href="http://solvedesk.de/login" />
 
-			<div class="auth-page">
+			<section class="auth-page">
 				<div class="container">
 					<h1>Log In</h1>
 					<A href="/register">Don't have an account?</A>
 					<LoginForm />
 				</div>
-			</div>
+			</section>
 		</MetaProvider>
 	)
 }

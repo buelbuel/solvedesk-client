@@ -3,13 +3,15 @@
 @import 'src/assets/sass/variables';
 @import 'src/assets/sass/colors';
 
-input {
+.input {
 	display: block;
 	padding: 0.375rem 0;
 	text-indent: 1em;
     border-radius: 0.5rem;
     width: 100%;
-	border: 1px solid map-get($bg-colors, dark-100);
+	border-width: 2px;
+	border-style: solid;
+	border-color: map-get($bg-colors, dark-100);
 	font-size: $font-size-sm;
 	line-height: 1.5em;
 	background-color: map-get($bg-colors, dark-400);
@@ -24,12 +26,8 @@ input {
 		outline: 2px auto -webkit-focus-ring-color;
 	}
 
-	@media (min-width: $break-sm) {
-        width: auto;
-	}
-
 	@media (prefers-color-scheme: light) {
-        border: 1px solid map-get($bg-colors, light-500);
+        border-color: map-get($bg-colors, light-500);
 		background-color: map-get($bg-colors, light-50);
 
         &:hover {

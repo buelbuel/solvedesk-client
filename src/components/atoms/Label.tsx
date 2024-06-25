@@ -9,7 +9,7 @@ interface LabelProps {
 
 const Label = (props: LabelProps) => {
 	return (
-		<label for={props.for} class={props.className || ''}>
+		<label for={props.for} class={`${props.className || ''} label`.trim()}>
 			{props.children}
 		</label>
 	)

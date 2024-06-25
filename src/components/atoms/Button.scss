@@ -3,7 +3,7 @@
 @import 'src/assets/sass/variables';
 @import 'src/assets/sass/colors';
 
-button {
+.button {
 	background-color: map-get(map-get($brand-colors, primary), dark);
 	color: map-get($text-colors, dark);
 	border: none;
@@ -28,10 +28,8 @@ button {
 	&:focus-visible {
 		outline: 2px auto -webkit-focus-ring-color;
 	}
-}
-
-@media (prefers-color-scheme: light) {
-	button {
+	
+	@media (prefers-color-scheme: light) {
 		background-color: map-get(map-get($brand-colors, primary), light);
 		color: map-get($text-colors, light);
 		&:hover {
