@@ -1,9 +1,11 @@
+// src/context/AuthContext.tsx
 import { createContext, useContext, createSignal, JSX } from 'solid-js'
 import { useNavigate } from '@solidjs/router'
 
 type AuthContextType = {
 	isAuthenticated: () => boolean
 	login: (email: string, password: string) => Promise<void>
+	refreshAccessToken: () => Promise<void>
 	logout: () => void
 	loading: () => boolean
 	error: () => string
@@ -17,6 +19,7 @@ interface AuthProviderProps {
 const defaultContext: AuthContextType = {
 	isAuthenticated: () => false,
 	login: async () => {},
+	refreshAccessToken: async () => {},
 	logout: () => {},
 	loading: () => false,
 	error: () => ''
@@ -31,8 +34,8 @@ export function AuthProvider(props: AuthProviderProps) {
 	const navigate = useNavigate()
 
 	const login = async (email: string, password: string) => {
-		setLoading(true)
-		setError('')
+		setLoading(true);
+		setError('');
 		try {
 			const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/auth/login`, {
 				method: 'POST',
@@ -40,47 +43,87 @@ export function AuthProvider(props: AuthProviderProps) {
 					'Content-Type': 'application/json'
 				},
 				body: JSON.stringify({ email, password })
+			});
+	
+			if (!response.ok) {
+				const errorData = await response.json();
+				throw new Error(errorData.message || 'An unknown error occurred');
+			}
+	
+			const data = await response.json();
+	
+			const { accessToken, refreshToken } = data.token;
+	
+			if (!accessToken || !refreshToken) {
+				throw new Error('Access token or refresh token not provided');
+			}
+	
+			localStorage.setItem('token', accessToken);
+			localStorage.setItem('refreshToken', refreshToken);
+			document.cookie = `token=${accessToken}`;
+			setIsAuthenticated(true);
+			setLoading(false);
+			navigate('/app');
+		} catch (err) {
+			setLoading(false);
+			if (err instanceof Error) {
+				setError(err.message);
+			} else {
+				setError('An unknown error occurred');
+			}
+			console.error('Login catch error:', err);
+		}
+	};
+	
+
+	const refreshAccessToken = async () => {
+		const refreshToken = localStorage.getItem('refreshToken')
+		if (!refreshToken) {
+			logout()
+			return
+		}
+
+		try {
+			const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/auth/refresh-token`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({ refreshToken })
 			})
 
 			if (!response.ok) {
-				const errorData = await response.json()
-				throw new Error(errorData.message || 'An unknown error occurred')
+				throw new Error('Failed to refresh access token')
 			}
 
 			const data = await response.json()
-			localStorage.setItem('token', data.token)
-			document.cookie = `token=${data.token}`
+			localStorage.setItem('token', data.accessToken)
+			document.cookie = `token=${data.accessToken}`
 			setIsAuthenticated(true)
-			setLoading(false)
-			navigate('/app')
 		} catch (err) {
-			setLoading(false)
-			if (err instanceof Error) {
-				setError(err.message)
-			} else {
-				setError('An unknown error occurred')
-			}
+			logout()
 		}
 	}
 
 	const logout = () => {
 		localStorage.removeItem('token')
+		localStorage.removeItem('refreshToken')
 		setIsAuthenticated(false)
 		navigate('/login')
 	}
 
 	const checkAuthAndRedirect = () => {
-		if (!isAuthenticated()) {
-			if (props.refuse) {
-				navigate('/login')
-			}
+		if (!isAuthenticated() && props.refuse) {
+			navigate('/login')
 		}
 	}
 
 	checkAuthAndRedirect()
 
 	return (
-		<AuthContext.Provider value={{ isAuthenticated, login, logout, loading, error }}>
+		<AuthContext.Provider
+			value={{ isAuthenticated, login, refreshAccessToken, logout, loading, error }}
+		>
 			{props.children}
 		</AuthContext.Provider>
 	)

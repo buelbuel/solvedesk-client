@@ -14,7 +14,8 @@
 		"prettier": "3.3.2",
 		"solid-dismiss": "^1.8.2",
 		"solid-icons": "^1.1.0",
-		"solid-js": "^1.8.17"
+		"solid-js": "^1.8.17",
+		"winston": "^3.13.0"
 	},
 	"devDependencies": {
 		"sass": "^1.77.6",

@@ -1,7 +1,7 @@
 import { createSignal, createEffect, For } from 'solid-js'
 import { MetaProvider, Title, Link } from '@solidjs/meta'
 import { A } from '@solidjs/router'
-import { useAuth } from 'context/AuthContext'
+//import { useAuth } from 'context/AuthContext'
 import './Tickets.scss'
 
 // Define the Ticket type

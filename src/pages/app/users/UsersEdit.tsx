@@ -20,7 +20,6 @@ const UsersEdit = () => {
 
 	const handleSubmit = async (event: { preventDefault: () => void }) => {
 		event.preventDefault()
-		// Update ticket
 		await fetch(`/api/tickets/${params.id}`, {
 			method: 'PUT',
 			headers: {
@@ -35,7 +34,7 @@ const UsersEdit = () => {
 		<MetaProvider>
 			<Title>SolveDesk</Title>
 			<Link rel="canonical" href="http://solvedesk.de/" />
-            
+
 			<section class="ticket-edit-page">
 				<h1>Edit Ticket</h1>
 				<form onSubmit={handleSubmit}>
