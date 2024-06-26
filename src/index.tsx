@@ -21,11 +21,10 @@ const Tickets = lazy(() => import('pages/app/tickets/Tickets'))
 const TicketsDetail = lazy(() => import('pages/app/tickets/TicketsDetail'))
 const TicketsEdit = lazy(() => import('pages/app/tickets/TicketsEdit'))
 const Users = lazy(() => import('pages/app/users/Users'))
-const UsersDetail = lazy(() => import('pages/app/users/UsersDetail'))
-const UsersEdit = lazy(() => import('pages/app/users/UsersEdit'))
+const UserDetail = lazy(() => import('pages/app/users/UserDetail'))
+const UserEdit = lazy(() => import('pages/app/users/UserEdit'))
 const Profile = lazy(() => import('pages/app/profile/ProfileDetail'))
 
-// Define props type for AppRoute and FrontRoute
 type RouteProps = {
 	children: JSX.Element | JSX.Element[]
 	index: boolean
@@ -62,8 +61,8 @@ render(
 						</Route>
 						<Route path="/users">
 							<Route path="/" component={Users} />
-							<Route path="/:id" component={UsersDetail} />
-							<Route path="/:id/edit" component={UsersEdit} />
+							<Route path="/:id" component={UserDetail} />
+							<Route path="/:id/edit" component={UserEdit} />
 						</Route>
 						<Route path="/profile">
 							<Route path="/" component={Profile} />

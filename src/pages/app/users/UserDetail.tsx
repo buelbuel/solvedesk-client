@@ -1,7 +1,7 @@
 import { A, useParams } from '@solidjs/router'
 import { createSignal, createEffect } from 'solid-js'
 import { MetaProvider, Title, Link } from '@solidjs/meta'
-import './UsersDetail.scss'
+import './UserDetail.scss'
 
 interface User {
 	email: string
@@ -11,7 +11,7 @@ interface User {
 
 const API_URL = import.meta.env.VITE_SERVER_URL
 
-const UsersDetail = () => {
+const UserDetail = () => {
 	const params = useParams()
 	const [user, setUser] = createSignal<User | null>(null)
 	const [loading, setLoading] = createSignal(false)
@@ -50,7 +50,8 @@ const UsersDetail = () => {
 	return (
 		<MetaProvider>
 			<Title>SolveDesk</Title>
-			<Link rel="canonical" href="http://solvedesk.de/" />
+			<Link rel="canonical" href="http://solvedesk.de/app/users" />
+
 			<section class="user-detail-page">
 				{loading() && <p>Loading...</p>}
 				{error() && <p>Error: {error()}</p>}
@@ -66,4 +67,4 @@ const UsersDetail = () => {
 	)
 }
 
-export default UsersDetail
+export default UserDetail

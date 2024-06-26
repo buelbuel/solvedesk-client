@@ -1,9 +1,9 @@
 import { useParams, useNavigate } from '@solidjs/router'
 import { createSignal, createEffect } from 'solid-js'
 import { MetaProvider, Title, Link } from '@solidjs/meta'
-import './TicketsEdit.scss'
+import './UserEdit.scss'
 
-const UsersEdit = () => {
+const UserEdit = () => {
 	const params = useParams()
 	const navigate = useNavigate()
 	const [ticket, setTicket] = createSignal({ title: '', description: '' })
@@ -70,4 +70,4 @@ const UsersEdit = () => {
 	)
 }
 
-export default UsersEdit
+export default UserEdit

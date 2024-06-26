@@ -4,5 +4,7 @@
 @import 'src/assets/sass/colors';
 
 .loading {
+    display: block;
+    font-weight: 600;
     color: map-get($accent-colors, warning)
 }

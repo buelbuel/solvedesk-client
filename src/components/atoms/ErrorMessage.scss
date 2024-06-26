@@ -3,11 +3,8 @@
 @import 'src/assets/sass/variables';
 @import 'src/assets/sass/colors';
 
-.error-messages {
-	padding: 0;
-
-	.error-message {
-		list-style: none;
-        color: map-get($accent-colors, danger)
-	}
+.error-message {
+	display: block;
+    font-weight: 600;
+	color: map-get($accent-colors, danger)
 }

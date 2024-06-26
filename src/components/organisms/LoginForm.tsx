@@ -58,7 +58,7 @@ const LoginForm = () => {
             <Show when={loading()}>
                 <Loading />
             </Show>
-            <ul class="error-messages">
+            <p class="error-messages">
                 <Switch>
                     <Match when={error() === 'Email already in use'}>
                         <ErrorMessage message="Email already in use" />
@@ -73,7 +73,7 @@ const LoginForm = () => {
                         <ErrorMessage message={error()} />
                     </Match>
                 </Switch>
-            </ul>
+            </p>
         </form>
     );
 };

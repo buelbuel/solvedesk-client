@@ -2,6 +2,8 @@ import { A, useParams } from '@solidjs/router'
 import { createSignal, createEffect } from 'solid-js'
 import { MetaProvider, Title, Link } from '@solidjs/meta'
 import './ProfileDetail.scss'
+import Loading from 'components/atoms/Loading'
+import ErrorMessage from 'components/atoms/ErrorMessage'
 
 interface User {
 	email: string
@@ -50,11 +52,11 @@ const ProfileDetail = () => {
 	return (
 		<MetaProvider>
 			<Title>SolveDesk</Title>
-			<Link rel="canonical" href="http://solvedesk.de/" />
-			<section class="user-detail-page">
-                <h1>Me</h1>
-				{loading() && <p>Loading...</p>}
-				{error() && <p>Error: {error()}</p>}
+			<Link rel="canonical" href="http://solvedesk.de/app/profile" />
+
+			<section class="profile-page container">
+				{loading() && <Loading />}
+				{error() && <ErrorMessage message={error()} />}
 				{user() && (
 					<div>
 						<h1>{user()?.email}</h1>
