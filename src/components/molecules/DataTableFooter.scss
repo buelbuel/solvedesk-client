@@ -1,0 +1,10 @@
+/** @source components/molecules/DataTableFooter.scss */
+@import 'src/assets/sass/variables';
+@import 'src/assets/sass/colors';
+
+.data-table-footer {
+	background-color: map-get($bg-colors, light-100);
+	color: map-get($text-colors, dark-500);
+	font-weight: 600;
+	text-align: left;
+}

@@ -1,0 +1,38 @@
+/** @source components/atoms/NavbarMenuItem.scss */
+@import 'src/assets/sass/variables';
+@import 'src/assets/sass/colors';
+
+.navbar-modal-item {
+	gap: 2rem;
+	background-color: map-get($bg-colors, light);
+	border-radius: 1rem;
+	border-color: map-get($bg-colors, light-100);
+	border-width: 1px;
+	border-style: solid;
+	padding: 0.6rem 1.2rem;
+	cursor: pointer;
+
+	&:hover {
+		border-color: map-get($bg-colors, light-400);
+		filter: $shadow-sm;
+	}
+
+	.navbar-modal-item-link {
+		color: map-get(map-get($brand-colors, primary), dark);
+		font-weight: 600;
+		font-size: $font-size-sm;
+		font-weight: 600;
+		transition: all 0.2s;
+		display: flex;
+		background-color: inherit;
+		border: none;
+		justify-content: center;
+		gap: 0.5rem;
+		width: 100%;
+		cursor: inherit;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}

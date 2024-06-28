@@ -1,10 +1,9 @@
 /** @source components/atoms/ErrorMesage.scss */
-
 @import 'src/assets/sass/variables';
 @import 'src/assets/sass/colors';
 
 .error-message {
 	display: block;
-    font-weight: 600;
-	color: map-get($accent-colors, danger)
+	font-weight: 600;
+	color: map-get($accent-colors, danger);
 }

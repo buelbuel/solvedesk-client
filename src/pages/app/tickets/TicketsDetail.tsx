@@ -1,6 +1,6 @@
 import { A, useParams } from '@solidjs/router'
 import { createSignal, createEffect } from 'solid-js'
-import { MetaProvider, Title, Link } from '@solidjs/meta'
+import { MetaProvider, Title } from '@solidjs/meta'
 import './TicketsDetail.scss'
 
 const TicketsDetail = () => {
@@ -20,15 +20,13 @@ const TicketsDetail = () => {
 	return (
 		<MetaProvider>
 			<Title>SolveDesk</Title>
-			<Link rel="canonical" href="http://solvedesk.de/" />
+
 			<section class="ticket-detail-page">
 				{ticket() && (
 					<>
-						<h1>{ticket().title}</h1>
-						<p>{ticket().description}</p>
-						<A href={`/app/tickets/edit/${params.id}`}>
-							Edit Ticket
-						</A>
+						<h1>{/** ticket().title*/}</h1>
+						<p>{/**ticket().description*/}</p>
+						<A href={`/app/tickets/edit/${params.id}`}>Edit Ticket</A>
 					</>
 				)}
 			</section>

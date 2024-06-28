@@ -19,17 +19,12 @@ function Home() {
 					</div>
 					<h1>Vite + Solid</h1>
 					<div class="card">
-						<button onClick={() => setCount(count => count + 1)}>
-							count is {count()}
-						</button>
+						<button onClick={() => setCount(count => count + 1)}>count is {count()}</button>
 						<p>
-							Edit <code>src/pages/Home.tsx</code> and save to
-							test HMR
+							Edit <code>src/pages/Home.tsx</code> and save to test HMR
 						</p>
 					</div>
-					<p class="read-the-docs">
-						Click on the Vite and Solid logos to learn more
-					</p>
+					<p class="read-the-docs">Click on the Vite and Solid logos to learn more</p>
 				</div>
 			</section>
 		</MetaProvider>

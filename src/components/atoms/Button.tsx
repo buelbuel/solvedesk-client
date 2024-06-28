@@ -6,16 +6,18 @@ interface ButtonProps {
 	onClick?: (e: Event) => void
 	disabled?: boolean
 	className?: string
+	variant?: 'primary' | 'secondary' | 'light'
 	children: JSX.Element
 }
 
 const Button = (props: ButtonProps) => {
+	const variantClass = props.variant ? ` ${props.variant}` : ''
 	return (
 		<button
 			type={props.type}
 			onClick={props.onClick}
 			disabled={props.disabled}
-			class={`${props.className || ''} button`.trim()}
+			class={`${props.className || ''} button${variantClass}`.trim()}
 		>
 			{props.children}
 		</button>

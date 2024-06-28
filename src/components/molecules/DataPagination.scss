@@ -1,0 +1,32 @@
+/** @source components/molecules/DataPagination.scss */
+@import 'src/assets/sass/colors';
+@import 'src/assets/sass/variables';
+
+.pagination {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	gap: 1rem;
+
+	label {
+		margin-right: 1rem;
+		color: map-get($text-colors, dark-500);
+		font-weight: 500;
+	}
+
+	select {
+		padding: 0.5rem;
+		font-size: 0.875rem; // Adjust font size for select elements
+		border: 1px solid map-get($bg-colors, light-300);
+		border-radius: 0.25rem;
+		background-color: white;
+		color: map-get($text-colors, dark-600);
+		transition: border-color 0.15s ease;
+
+		&:hover,
+		&:focus {
+			border-color: map-get(map-get($brand-colors, primary), dark);
+			outline: none;
+		}
+	}
+}

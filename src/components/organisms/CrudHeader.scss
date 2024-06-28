@@ -1,0 +1,32 @@
+/** @source components/molecules/CrudHeader.scss */
+@import 'src/assets/sass/variables';
+@import 'src/assets/sass/colors';
+
+.crud-header {
+  padding: 2rem 0;
+  border-bottom: 1px solid map-get($bg-colors, light-500);
+
+	& .container {
+		display: flex;
+		justify-content: space-between;
+
+    & .crud-header-info {
+      & h2 {
+        font-size: $font-size-md;
+        margin: 0;
+        line-height: 1;
+        color: map-get($text-colors, primary)
+      }
+    }
+		& .crud-header-actions {
+			display: flex;
+			justify-content: end;
+			gap: 1rem;
+
+			& .crud-header-actions-buttons {
+				display: flex;
+				gap: 0.25rem;
+			}
+		}
+	}
+}

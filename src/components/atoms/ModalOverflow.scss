@@ -1,0 +1,18 @@
+/** @source components/molecules/ModalOverflow.scss */
+@import 'src/assets/sass/variables';
+@import 'src/assets/sass/colors';
+
+.modal-overflow {
+	position: fixed;
+	top: 90%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	min-height: 150vh;
+	max-width: 900px;
+	width: 90%;
+	padding: 16px;
+	background-color: map-get($bg-colors, light);
+	border-radius: 0.5rem;
+	filter: $shadow-xl;
+	z-index: 2;
+}

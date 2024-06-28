@@ -1,0 +1,17 @@
+/** @source components/molecules/SearchInput.scss */
+@import 'src/assets/sass/variables';
+@import 'src/assets/sass/colors';
+
+.search-input {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	.search-input-icon {
+		margin: 0 1rem;
+	}
+
+	.search-input-field {
+		
+	}
+}

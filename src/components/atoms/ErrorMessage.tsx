@@ -1,7 +1,7 @@
 import './ErrorMessage.scss'
 
 interface ErrorMessageProps {
-	message: string
+	message: string | null
 }
 
 const ErrorMessage = (props: ErrorMessageProps) => {

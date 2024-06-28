@@ -1,10 +1,9 @@
 /** @source components/atoms/Loading.scss */
-
 @import 'src/assets/sass/variables';
 @import 'src/assets/sass/colors';
 
 .loading {
-    display: block;
-    font-weight: 600;
-    color: map-get($accent-colors, warning)
+	display: block;
+	font-weight: 600;
+	color: map-get($accent-colors, warning);
 }

@@ -1,0 +1,36 @@
+/** @source components/molecules/DataTableRow.scss */
+@import 'src/assets/sass/variables';
+@import 'src/assets/sass/colors';
+
+.data-table-row {
+	cursor: pointer;
+	color: map-get($text-colors, dark-300);
+	transition: all 0.1s;
+
+	&:hover {
+		background-color: lighten(map-get($bg-colors, light-50), 2%);
+	}
+
+	.data-table-row-cell {
+		padding: 0.5rem 0.25rem;
+		border-bottom: 1px solid map-get($text-colors, light-400);
+
+		&:first-of-type {
+			font-weight: 600;
+			padding: 0.5rem;
+		}
+	}
+
+	.data-table-row-actions {
+		display: inline-flex;
+		justify-content: space-between;
+		gap: 0.5rem;
+
+		.data-table-row-actions {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.25rem;
+			background-color: map-get($bg-colors, light-50);
+		}
+	}
+}

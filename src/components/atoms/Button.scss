@@ -1,42 +1,85 @@
-/** @source components/atoms/Buttons.scss */
-
+/** @source components/molecules/Button.scss */
 @import 'src/assets/sass/variables';
 @import 'src/assets/sass/colors';
 
 .button {
-	background-color: map-get(map-get($brand-colors, primary), dark);
-	color: map-get($text-colors, dark);
-	border: none;
 	border-radius: 0.5rem;
 	padding: 0.6rem 1.2rem;
 	font-size: $font-size-sm;
 	font-weight: 600;
 	font-family: inherit;
 	cursor: pointer;
-	filter: $shadow-sm;
 	transition: all 0.2s;
+	display: inline-flex;
+	gap: 0.25rem;
 
-	&:hover {
-		background-color: darken(
-			map-get(map-get($brand-colors, primary), dark),
-			5%
-		);
-		filter: $shadow-md;
+	&.primary {
+		border: none;
+		filter: $shadow-sm;
+		background-color: map-get(map-get($brand-colors, primary), dark);
+		color: map-get($text-colors, dark);
+
+		&:hover {
+			background-color: darken(map-get(map-get($brand-colors, primary), dark), 5%);
+			filter: $shadow-md;
+		}
+
+		@media (prefers-color-scheme: light) {
+			background-color: map-get(map-get($brand-colors, primary), light);
+			color: map-get($text-colors, light);
+
+			&:hover {
+				background-color: darken(map-get(map-get($brand-colors, primary), light), 5%);
+			}
+		}
+	}
+
+	&.secondary {
+		border: none;
+		filter: $shadow-sm;
+		background-color: map-get(map-get($brand-colors, secondary), light);
+		color: map-get($text-colors, dark);
+
+		&:hover {
+			background-color: lighten(map-get(map-get($brand-colors, secondary), light), 5%);
+			filter: $shadow-md;
+		}
+
+		@media (prefers-color-scheme: light) {
+			background-color: map-get(map-get($brand-colors, secondary), dark);
+			color: map-get($text-colors, light);
+
+			&:hover {
+				background-color: lighten(map-get(map-get($brand-colors, secondary), dark), 5%);
+			}
+		}
+	}
+
+	&.light {
+		border-width: 1px;
+		border-style: solid;
+		border-color: map-get($bg-colors, light-400);
+		background-color: map-get($bg-colors, dark);
+		color: map-get($text-colors, light);
+
+		&:hover {
+			border-color: map-get($bg-colors, dark);
+			filter: $shadow-sm;
+			color: map-get($text-colors, dark-200);
+		}
+
+		@media (prefers-color-scheme: light) {
+			background-color: map-get($bg-colors, light);
+			color: map-get($text-colors, dark);
+
+			&:hover {
+				border-color: map-get($bg-colors, light-900);
+			}
+		}
 	}
 
 	&:focus,
 	&:focus-visible {
 		outline: 2px auto -webkit-focus-ring-color;
-	}
-	
-	@media (prefers-color-scheme: light) {
-		background-color: map-get(map-get($brand-colors, primary), light);
-		color: map-get($text-colors, light);
-		&:hover {
-			background-color: darken(
-				map-get(map-get($brand-colors, primary), light),
-				5%
-			);
-		}
 	}
 }

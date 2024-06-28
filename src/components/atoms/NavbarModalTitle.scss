@@ -1,0 +1,10 @@
+/** @source components/atoms/NavbarModalTitle.scss */
+@import 'src/assets/sass/variables';
+@import 'src/assets/sass/colors';
+
+.navbar-modal-title {
+	font-size: $font-size-sm;
+	color: map-get($text-colors, dark-300);
+	font-weight: 600;
+	text-align: center;
+}

@@ -1,6 +1,5 @@
 /** @source assets/sass/_colors.scss */
 
-// Brand Colors
 $brand-colors: (
 	primary: (
 		dark: #0056b3,
@@ -12,7 +11,6 @@ $brand-colors: (
 	)
 );
 
-// Text Colors
 $text-colors: (
 	primary: #212529,
 	light: #f8f9fa,
@@ -28,10 +26,9 @@ $text-colors: (
 	dark-200: #5f656f,
 	dark-300: #42474a,
 	dark-400: #313739,
-	dark-500: #292d2f,
+	dark-500: #292d2f
 );
 
-// Background Colors
 $bg-colors: (
 	dark: #585f63,
 	light: #ffffff,
@@ -49,7 +46,6 @@ $bg-colors: (
 	dark-500: #28292d
 );
 
-// Accent Colors
 $accent-colors: (
 	success: #28a745,
 	danger: #dc3545,

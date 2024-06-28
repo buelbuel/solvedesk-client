@@ -1,6 +1,6 @@
 import { A, useParams } from '@solidjs/router'
 import { createSignal, createEffect } from 'solid-js'
-import { MetaProvider, Title, Link } from '@solidjs/meta'
+import { MetaProvider, Title } from '@solidjs/meta'
 import './ProfileDetail.scss'
 import Loading from 'components/atoms/Loading'
 import ErrorMessage from 'components/atoms/ErrorMessage'
@@ -52,7 +52,6 @@ const ProfileDetail = () => {
 	return (
 		<MetaProvider>
 			<Title>SolveDesk</Title>
-			<Link rel="canonical" href="http://solvedesk.de/app/profile" />
 
 			<section class="profile-page container">
 				{loading() && <Loading />}

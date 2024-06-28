@@ -2,6 +2,10 @@
 import { createContext, useContext, createSignal, JSX } from 'solid-js'
 import { useNavigate } from '@solidjs/router'
 
+/**
+ *
+ * @source context/AuthContext.tsx
+ */
 type AuthContextType = {
 	isAuthenticated: () => boolean
 	login: (email: string, password: string) => Promise<void>
@@ -120,9 +124,7 @@ export function AuthProvider(props: AuthProviderProps) {
 	checkAuthAndRedirect()
 
 	return (
-		<AuthContext.Provider
-			value={{ isAuthenticated, login, refreshAccessToken, logout, loading, error }}
-		>
+		<AuthContext.Provider value={{ isAuthenticated, login, refreshAccessToken, logout, loading, error }}>
 			{props.children}
 		</AuthContext.Provider>
 	)

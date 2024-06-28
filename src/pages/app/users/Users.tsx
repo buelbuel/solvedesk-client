@@ -4,7 +4,6 @@ import { A } from '@solidjs/router'
 import { useAuth } from 'context/AuthContext'
 import './Users.scss'
 
-// Define the User type
 interface User {
 	id: string
 	subject: string
@@ -19,26 +18,23 @@ function Users() {
 	const [loading, setLoading] = createSignal(false)
 	const [totalPages, setTotalPages] = createSignal(1)
 	const [currentPage, setCurrentPage] = createSignal(1)
-	const { isAuthenticated } = useAuth();
+	const { isAuthenticated } = useAuth()
 
-    if (!isAuthenticated()) {
-        return <div>Please login to access the dashboard.</div>;
-    }
+	if (!isAuthenticated()) {
+		return <div>Please login to access the dashboard.</div>
+	}
 
 	const fetchUsers = async (page: number) => {
 		setLoading(true)
 		try {
 			const token = localStorage.getItem('token')
-			const response = await fetch(
-				`${API_URL}/users?page=${page}&pageSize=20`,
-				{
-					headers: {
-						Authorization: `${token}`
-					}
+			const response = await fetch(`${API_URL}/users?page=${page}&pageSize=20`, {
+				headers: {
+					Authorization: `${token}`
 				}
-			)
+			})
 			if (!response.ok) {
-				throw new Error('Failed to fetch users')
+				throw new Error('Failed to fetch tickets')
 			}
 			const data = await response.json()
 			setUsers(data.users)
@@ -71,15 +67,10 @@ function Users() {
 					<p>Loading...</p>
 				) : (
 					<ul>
-						<For
-							each={users()}
-							fallback={<li>No users found.</li>}
-						>
+						<For each={users()} fallback={<li>No users found.</li>}>
 							{user => (
 								<li>
-									<A href={`/app/users/${user.id}`}>
-										{user.subject}
-									</A>
+									<A href={`/app/users/${user.id}`}>{user.subject}</A>
 								</li>
 							)}
 						</For>
@@ -88,15 +79,8 @@ function Users() {
 				{/* Pagination select dropdown */}
 				<nav class="pagination">
 					<label for="pageSelect">Page:</label>
-					<select
-						id="pageSelect"
-						value={currentPage()}
-						onChange={handlePageChange}
-					>
-						{Array.from(
-							{ length: totalPages() },
-							(_, i) => i + 1
-						).map(page => (
+					<select id="pageSelect" value={currentPage()} onChange={handlePageChange}>
+						{Array.from({ length: totalPages() }, (_, i) => i + 1).map(page => (
 							<option value={page}>{page}</option>
 						))}
 					</select>

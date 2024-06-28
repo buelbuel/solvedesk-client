@@ -1,0 +1,26 @@
+/** @source components/molecules/DataTable.scss */
+@import 'src/assets/sass/variables';
+@import 'src/assets/sass/colors';
+
+.data-table {
+	background-color: map-get($bg-colors, light);
+	border-radius: 0.25rem;
+	overflow: hidden;
+	font-size: $font-size-sm;
+
+	.data-table-wrapper {
+		overflow-x: auto;
+
+		.loading {
+			text-align: center;
+			padding: 8rem;
+		}
+	}
+
+	.data-table-wrapper-table {
+		width: 100%;
+		min-width: $break-lg;
+		border-collapse: collapse;
+		border: 1px solid map-get($bg-colors, light-500);
+	}
+}

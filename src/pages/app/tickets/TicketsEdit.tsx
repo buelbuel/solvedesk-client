@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from '@solidjs/router'
 import { createSignal, createEffect } from 'solid-js'
-import { MetaProvider, Title, Link } from '@solidjs/meta'
+import { MetaProvider, Title } from '@solidjs/meta'
 import './TicketsEdit.scss'
 
 const TicketsEdit = () => {
@@ -34,8 +34,7 @@ const TicketsEdit = () => {
 	return (
 		<MetaProvider>
 			<Title>SolveDesk</Title>
-			<Link rel="canonical" href="http://solvedesk.de/" />
-            
+
 			<section class="ticket-edit-page">
 				<h1>Edit Ticket</h1>
 				<form onSubmit={handleSubmit}>
