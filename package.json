@@ -6,20 +6,25 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc -b && vite build",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"docs": "jsdoc --configure jsdoc.config.json",
+		"format": "prettier . '!dist/**' '!docs/**' --write",
+		"lint": "eslint --ignore-pattern 'docs/**/*' --ignore-pattern 'dist/**/*'"
 	},
 	"dependencies": {
 		"@solidjs/meta": "^0.29.4",
 		"@solidjs/router": "^0.13.6",
-		"prettier": "3.3.2",
 		"solid-icons": "^1.1.0",
-		"solid-js": "^1.8.17",
-		"winston": "^3.13.0"
+		"solid-js": "^1.8.17"
 	},
 	"devDependencies": {
+		"@eslint/js": "^9.6.0",
+		"docdash": "^2.0.2",
+		"eslint": "^9.6.0",
+		"globals": "^15.6.0",
+		"jsdoc": "^4.0.3",
+		"prettier": "3.3.2",
 		"sass": "^1.77.6",
-		"typedoc": "^0.26.3",
-		"typescript": "^5.2.2",
 		"vite": "^5.3.1",
 		"vite-plugin-solid": "^2.10.2",
 		"vite-tsconfig-paths": "^4.3.2"

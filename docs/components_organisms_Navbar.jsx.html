@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>components/organisms/Navbar.jsx - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AuthProvider">AuthProvider</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#Register">Register</a></li><li><a href="global.html#fetchUser">fetchUser</a></li><li><a href="global.html#useAuth">useAuth</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">components/organisms/Navbar.jsx</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { createSignal, onCleanup, onMount } from 'solid-js'
+import {
+	CgBriefcase,
+	CgChart,
+	CgDebug,
+	CgFile,
+	CgFileDocument,
+	CgInfo,
+	CgLaptop,
+	CgMail,
+	CgMenuGridO,
+	CgPhone,
+	CgTime,
+	CgUser,
+	CgUserAdd,
+	CgUserRemove,
+	CgUserList
+} from 'solid-icons/cg'
+import { A } from '@solidjs/router'
+import appLogo from 'assets/images/logo.png'
+import { useAuth } from 'context/AuthContext'
+import ModalCenter from 'components/atoms/ModalCenter'
+import NavbarModal from 'components/molecules/NavbarModal'
+import './Navbar.scss'
+
+/**
+ * Navbar component for site navigation and user profile management.
+ *
+ * @source src/components/molecules/Navbar.jsx
+ * @returns JSX
+ */
+export default function Navbar() {
+	const [openNavbarModalMenu, setOpenNavbarModalMenu] = createSignal(false)
+	const [openNavbarModalProfile, setOpenNavbarModalProfile] = createSignal(false)
+	const [hasShadow, setHasShadow] = createSignal(false)
+	const { isAuthenticated, logout } = useAuth()
+
+	/**
+	 * Toggles the menu modal.
+	 */
+	const handleNavbarModalMenu = () => {
+		setOpenNavbarModalMenu(!openNavbarModalMenu())
+	}
+
+	/**
+	 * Toggles the profile modal.
+	 */
+	const handleNavbarModalProfile = () => {
+		setOpenNavbarModalProfile(!openNavbarModalProfile())
+	}
+
+	/**
+	 * Handles the scroll event to determine if shadow should be applied to navbar.
+	 */
+	const handleScroll = () => {
+		if (window.scrollY > 10) {
+			setHasShadow(true)
+		} else {
+			setHasShadow(false)
+		}
+	}
+
+	// Attach scroll event listener on component mount
+	onMount(() => {
+		window.addEventListener('scroll', handleScroll)
+		// Cleanup event listener on component unmount
+		onCleanup(() => {
+			window.removeEventListener('scroll', handleScroll)
+		})
+	})
+
+	// Define categories for menu and profile modals
+	const menuCategories = [
+		{
+			title: 'Support',
+			items: [
+				{ href: '/app', icon: &lt;CgChart />, label: 'Dashboard' },
+				{ href: '/app/tickets', icon: &lt;CgBriefcase />, label: 'Tickets' },
+				{ href: '/app/accounts', icon: &lt;CgUserList />, label: 'Accounts' },
+				{ href: '/app/contacts', icon: &lt;CgUser />, label: 'Contacts' }
+			]
+		},
+		{
+			title: 'Communication',
+			items: [
+				{ href: '/app/emails', icon: &lt;CgMail />, label: 'Emails' },
+				{ href: '/app/emailtemplates', icon: &lt;CgFile />, label: 'Email Templates' }
+			]
+		},
+		{
+			title: 'Resources',
+			items: [
+				{ href: '/app/knowledge', icon: &lt;CgInfo />, label: 'Knowledge Base' },
+				{ href: '/app/servicecatalog', icon: &lt;CgPhone />, label: 'Service Catalog' },
+				{ href: '/app/selfservice', icon: &lt;CgDebug />, label: 'Self Service Portal' },
+				{ href: '/app/assets', icon: &lt;CgLaptop />, label: 'Asset Management' }
+			]
+		},
+		{
+			title: 'Productivity',
+			items: [
+				{ href: '/app/times', icon: &lt;CgTime />, label: 'Time Tracking' },
+				{ href: '/app/invoices', icon: &lt;CgFileDocument />, label: 'Billing' }
+			]
+		}
+	]
+
+	const profileCategories = [
+		{
+			title: !isAuthenticated() ? 'Not Logged in' : 'username',
+			items: !isAuthenticated()
+				? [
+						{ href: '/register', icon: &lt;CgUserAdd />, label: 'Register' },
+						{ href: '/login', icon: &lt;CgUser />, label: 'Login' }
+					]
+				: [
+						{ href: '/app/profile', icon: &lt;CgUser />, label: 'Profile' },
+						{ icon: &lt;CgUserRemove />, label: 'Logout', onClick: () => logout() }
+					]
+		}
+	]
+
+	return (
+		&lt;header class={`navbar ${hasShadow() ? 'navbar-shadow' : ''}`}>
+			&lt;nav class="container">
+				&lt;A href="/">
+					&lt;img src={appLogo} class="logo" alt="SolveDesk Logo" />
+				&lt;/A>
+				&lt;div class="navbar-modal-buttons">
+					{/* Toggle menu modal */}
+					&lt;CgMenuGridO size={32} class="navbar-modal-button" onClick={handleNavbarModalMenu} />
+					{/* Toggle profile modal */}
+					&lt;CgUser size={32} class="navbar-modal-button" onClick={handleNavbarModalProfile} />
+				&lt;/div>
+			&lt;/nav>
+
+			{/* Modal for menu categories */}
+			&lt;ModalCenter open={openNavbarModalMenu()} setOpen={setOpenNavbarModalMenu}>
+				&lt;NavbarModal categories={menuCategories} />
+			&lt;/ModalCenter>
+
+			{/* Modal for profile categories */}
+			&lt;ModalCenter open={openNavbarModalProfile()} setOpen={setOpenNavbarModalProfile}>
+				&lt;NavbarModal categories={profileCategories} />
+			&lt;/ModalCenter>
+		&lt;/header>
+	)
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a> on Sun Jun 30 2024 09:30:24 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>
