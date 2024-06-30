@@ -1,6 +1,14 @@
-/** @source components/atoms/NavbarModalTitle.scss */
 @import 'src/assets/sass/variables';
 @import 'src/assets/sass/colors';
+
+/**
+ * NavbarModalTitle Component Styles
+ *
+ * This stylesheet defines styles for the NavbarModalTitle component.
+ * It includes styles for the title element within a navbar modal.
+ *
+ * @source src/components/atoms/NavbarModalTitle.scss
+ */
 
 .navbar-modal-title {
 	font-size: $font-size-sm;
@@ -8,3 +16,10 @@
 	font-weight: 600;
 	text-align: center;
 }
+
+/* Additional Classes Used in DOM Structure (Documenting Purpose) */
+
+/**
+ * .navbar-modal-title
+ *   |-- .custom-title (if className prop is provided)
+ */

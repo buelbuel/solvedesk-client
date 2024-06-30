@@ -1,9 +1,8 @@
-import { A, useParams } from '@solidjs/router'
 import { createSignal, createEffect } from 'solid-js'
+import { A, useParams } from '@solidjs/router'
 import { MetaProvider, Title } from '@solidjs/meta'
-import './TicketsDetail.scss'
 
-const TicketsDetail = () => {
+export default function TicketsDetail() {
 	const params = useParams()
 	const [ticket, setTicket] = createSignal(null)
 
@@ -33,5 +32,3 @@ const TicketsDetail = () => {
 		</MetaProvider>
 	)
 }
-
-export default TicketsDetail

@@ -1,5 +1,29 @@
-/** @source components/oprganisms/CrudTable.scss */
+/**
+ * CrudTable Component Styles
+ *
+ * Styles for the CrudTable component, used for displaying CRUD data with pagination.
+ *
+ * @source src/components/organisms/CrudTable.scss
+ */
 
 .crud-table {
 	margin-top: 2rem;
 }
+
+/* Additional Classes Used in DOM Structure (Documenting Purpose) */
+
+/**
+ * .crud-table
+ *   |-- DataTable
+ *       |-- DataTableHeader
+ *       |-- DataTableBody
+ *           |-- DataTableRow
+ *               |-- DataTableCell
+ *                   |-- Edit Button
+ *                   |-- Preview Button
+ *                   |-- Navigate Button
+ *               |-- ...
+ *       |-- DataTableFooter
+ *           |-- Pagination
+ *           |-- ItemsPerPage Selector
+ */

@@ -1,4 +1,3 @@
-// src/components/LoginForm.tsx
 import { createSignal, Show, Switch, Match } from 'solid-js'
 import { useAuth } from 'context/AuthContext'
 import Fieldset from 'components/molecules/Fieldset'
@@ -7,16 +6,34 @@ import ErrorMessage from 'components/atoms/ErrorMessage'
 import Loading from 'components/atoms/Loading'
 import './LoginForm.scss'
 
-const LoginForm = () => {
+/**
+ * Login form component for user authentication.
+ *
+ * @param {object} props - Component properties.
+ * @param {string} props.title - The title of the form.
+ * @param {(term: string) => void} props.onSearch - Function to handle search input.
+ *
+ * @returns JSX JSX representation of the login form.
+ * @source src/components/organisms/LoginForm.tsx
+ */
+export default function LoginForm() {
 	const { login, loading, error } = useAuth()
 	const [email, setEmail] = createSignal('')
 	const [password, setPassword] = createSignal('')
 
+	/**
+	 * Handles form submission.
+	 * @param {Event} e - Form submission event.
+	 */
 	const handleSubmit = async (e: Event) => {
 		e.preventDefault()
 		await login(email(), password())
 	}
 
+	/**
+	 * Handles email input change.
+	 * @param {Event} e - Input change event.
+	 */
 	const handleEmailInput = (e: Event) => {
 		const target = e.currentTarget as HTMLInputElement | null
 		if (target) {
@@ -24,6 +41,10 @@ const LoginForm = () => {
 		}
 	}
 
+	/**
+	 * Handles password input change.
+	 * @param {Event} e - Input change event.
+	 */
 	const handlePasswordInput = (e: Event) => {
 		const target = e.currentTarget as HTMLInputElement | null
 		if (target) {
@@ -32,7 +53,7 @@ const LoginForm = () => {
 	}
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit} class="login-form">
 			<Fieldset
 				labelFor="email"
 				labelText="Email"
@@ -55,9 +76,12 @@ const LoginForm = () => {
 				Log In
 			</Button>
 
+			{/* Show loading indicator while waiting for response */}
 			<Show when={loading()}>
 				<Loading />
 			</Show>
+
+			{/* Display error messages based on error state */}
 			<p class="error-messages">
 				<Switch>
 					<Match when={error() === 'Email already in use'}>
@@ -69,6 +93,7 @@ const LoginForm = () => {
 					<Match when={error() === 'User not found'}>
 						<ErrorMessage message="User not found" />
 					</Match>
+					{/* Display general error message */}
 					<Match when={error()}>
 						<ErrorMessage message={error()} />
 					</Match>
@@ -77,5 +102,3 @@ const LoginForm = () => {
 		</form>
 	)
 }
-
-export default LoginForm

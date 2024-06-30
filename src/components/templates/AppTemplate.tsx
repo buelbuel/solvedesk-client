@@ -1,5 +1,3 @@
-// src/components/templates/AppTemplate.tsx
-
 import { JSX } from 'solid-js'
 import Navbar from 'components/organisms/Navbar'
 import './AppTemplate.scss'
@@ -8,7 +6,16 @@ interface AppTemplateProps {
 	children: JSX.Element
 }
 
-const AppTemplate = (props: AppTemplateProps) => {
+/**
+ * AppTemplate component serves as the main layout template for the application,
+ * including a navigation bar and a main content area.
+ *
+ * @param props AppTemplateProps
+ *
+ * @returns JSX
+ * @source src/components/templates/AppTemplate.tsx
+ */
+export default function AppTemplate(props: AppTemplateProps) {
 	return (
 		<div class="app-template">
 			<Navbar />
@@ -16,5 +23,3 @@ const AppTemplate = (props: AppTemplateProps) => {
 		</div>
 	)
 }
-
-export default AppTemplate

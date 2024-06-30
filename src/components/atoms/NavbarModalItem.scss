@@ -1,6 +1,14 @@
-/** @source components/atoms/NavbarMenuItem.scss */
 @import 'src/assets/sass/variables';
 @import 'src/assets/sass/colors';
+
+/**
+ * NavbarModalItem Component Styles
+ *
+ * This stylesheet defines styles for the NavbarModalItem component.
+ * It includes styles for the item container, link/button, and their hover states.
+ *
+ * @source src/components/atoms/NavbarModalItem.scss
+ */
 
 .navbar-modal-item {
 	gap: 2rem;
@@ -36,3 +44,12 @@
 		}
 	}
 }
+
+/* Additional Classes Used in DOM Structure (Documenting Purpose) */
+
+/**
+ * .navbar-modal-item
+ *   |-- .navbar-modal-item-link
+ *       |-- .navbar-modal-item-icon (if icon prop is provided)
+ *       |-- .navbar-modal-item-label
+ */

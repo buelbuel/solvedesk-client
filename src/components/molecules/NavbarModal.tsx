@@ -1,9 +1,7 @@
-// src/components/molecules/NavbarModal.tsx
-
-import './NavbarModal.scss'
+import { JSX } from 'solid-js'
 import NavbarModalItem from 'components/atoms/NavbarModalItem'
 import NavbarModalTitle from 'components/atoms/NavbarModalTitle'
-import { JSX } from 'solid-js'
+import './NavbarModal.scss'
 
 interface NavbarModalProps {
 	categories: {
@@ -17,7 +15,14 @@ interface NavbarModalProps {
 	}[]
 }
 
-const NavbarModal = (props: NavbarModalProps) => {
+/**
+ * NavbarModal component to display a modal with categorized navigation items.
+ *
+ * @param {NavbarModalProps} props - The properties passed to the NavbarModal component.
+ * @returns {JSX.Element} - Rendered NavbarModal component.
+ * @source src/components/molecules/NavbarModal.tsx
+ */
+export default function NavbarModal(props: NavbarModalProps): JSX.Element {
 	return (
 		<div class="navbar-modal">
 			<div class="navbar-modal-categories">
@@ -33,5 +38,3 @@ const NavbarModal = (props: NavbarModalProps) => {
 		</div>
 	)
 }
-
-export default NavbarModal

@@ -1,4 +1,22 @@
-/** @source components/oprganisms/LoginForm.scss */
+/**
+ * LoginForm Component Styles
+ *
+ * Styles for the LoginForm component, which handles user authentication.
+ *
+ * @source src/components/organisms/LoginForm.scss
+ */
 
-@import 'src/assets/sass/variables';
-@import 'src/assets/sass/colors';
+.login-form {
+	//
+}
+
+/* Additional Classes Used in DOM Structure (Documenting Purpose) */
+
+/**
+ * .login-form
+ *   |-- Fieldset[labelFor="email"]
+ *   |-- Fieldset[labelFor="password"]
+ *   |-- Button[type="submit"]
+ *   |-- .error-messages
+ *       |-- ErrorMessage
+ */

@@ -1,10 +1,36 @@
-/** @source components/molecules/DataTableFooter.scss */
 @import 'src/assets/sass/variables';
 @import 'src/assets/sass/colors';
+
+/**
+ * DataTableFooter Component Styles
+ *
+ * Styles for the DataTableFooter component, which renders the footer of a data table.
+ *
+ * @source src/components/molecules/DataTableFooter.scss
+ */
 
 .data-table-footer {
 	background-color: map-get($bg-colors, light-100);
 	color: map-get($text-colors, dark-500);
 	font-weight: 600;
 	text-align: left;
+
+	.data-table-footer-row {
+		.data-table-footer-row-cell {
+			padding: 0.5rem 0.25rem;
+
+			&:first-of-type {
+				padding: 0.5rem;
+			}
+		}
+	}
 }
+
+/* Additional Classes Used in DOM Structure (Documenting Purpose) */
+
+/**
+ * .data-table-footer
+ *   |-- .data-table-footer-row
+ *     |-- th (repeats based on columns)
+ *     |-- th (for Pagination)
+ */

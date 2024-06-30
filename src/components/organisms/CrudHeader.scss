@@ -1,26 +1,34 @@
-/** @source components/molecules/CrudHeader.scss */
 @import 'src/assets/sass/variables';
 @import 'src/assets/sass/colors';
 
+/**
+ * CrudHeader Component Styles
+ *
+ * Styles for the CrudHeader component, managing the header section of a CRUD interface.
+ *
+ * @source src/components/molecules/CrudHeader.scss
+ */
+
 .crud-header {
-  padding: 2rem 0;
-  border-bottom: 1px solid map-get($bg-colors, light-500);
+	padding: 2rem 0;
+	border-bottom: 1px solid map-get($bg-colors, light-500);
 
 	& .container {
 		display: flex;
 		justify-content: space-between;
 
-    & .crud-header-info {
-      & h2 {
-        font-size: $font-size-md;
-        margin: 0;
-        line-height: 1;
-        color: map-get($text-colors, primary)
-      }
-    }
+		& .crud-header-info {
+			& h2 {
+				font-size: $font-size-md;
+				margin: 0;
+				line-height: 1;
+				color: map-get($text-colors, primary);
+			}
+		}
+
 		& .crud-header-actions {
 			display: flex;
-			justify-content: end;
+			justify-content: flex-end;
 			gap: 1rem;
 
 			& .crud-header-actions-buttons {
@@ -30,3 +38,23 @@
 		}
 	}
 }
+
+/* Additional Classes Used in DOM Structure (Documenting Purpose) */
+
+/**
+ * .crud-header
+ *   |-- .container
+ *       |-- .crud-header-info
+ *           |-- h2
+ *       |-- .crud-header-actions
+ *           |-- .crud-header-actions-search
+ *               |-- SearchInput
+ *           |-- .crud-header-actions-buttons
+ *               |-- Button[data-dropdown-toggle="filterDropdown"]
+ *                   |-- CgFilters
+ *                   |-- "Filter options"
+ *                   |-- CgArrowDown
+ *               |-- Button[data-modal-toggle="createProductModal"]
+ *                   |-- CgAdd
+ *                   |-- "Add product"
+ */

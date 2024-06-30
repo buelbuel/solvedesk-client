@@ -1,0 +1,19 @@
+/**
+ * GenericCrudPage Component Styles
+ *
+ * This stylesheet defines styles for the GenericCrudPage component,
+ * which is a reusable template for rendering CRUD pages.
+ *
+ * @source src/components/templates/GenericCrudPage.scss
+ */
+
+.modal-overflow-content {
+	//
+}
+
+/* Additional Classes Used in DOM Structure (Documenting Purpose) */
+
+/**
+ * .${props.entityConfig.entityName}-page
+ *   |-- .modal-overflow-content
+ */

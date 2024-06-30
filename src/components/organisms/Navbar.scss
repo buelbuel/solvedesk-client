@@ -1,6 +1,13 @@
-/** @source components/oprganisms/Navbar.scss */
 @import 'src/assets/sass/variables';
 @import 'src/assets/sass/colors';
+
+/**
+ * Navbar Component Styles
+ *
+ * Styles for the Navbar component, which includes site navigation and user profile management.
+ *
+ * @source src/components/organisms/Navbar.scss
+ */
 
 .navbar {
 	position: sticky;
@@ -44,3 +51,13 @@
 		}
 	}
 }
+
+/* Additional Classes Used in DOM Structure (Documenting Purpose) */
+
+/**
+ * .navbar
+ *   |-- nav
+ *       |-- .logo
+ *       |-- .navbar-modal-buttons
+ *           |-- .navbar-modal-button
+ */

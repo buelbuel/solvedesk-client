@@ -1,8 +1,25 @@
-/** @source components/templates/AppTemplate.scss */
-@import 'src/assets/sass/variables';
-@import 'src/assets/sass/colors';
+/**
+ * AppTemplate Component Styles
+ *
+ * This stylesheet defines styles for the AppTemplate component,
+ * which serves as the template for app-end pages.
+ *
+ * @source src/components/templates/AppTemplate.scss
+ */
 
 .app-template {
-	.content {
-	}
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
+
+.content {
+	flex: 1;
+}
+
+/* Additional Classes Used in DOM Structure (Documenting Purpose) */
+
+/**
+ * .app-template
+ *   |-- .content
+ */

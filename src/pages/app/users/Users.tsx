@@ -1,19 +1,16 @@
 import { createSignal, createEffect, For } from 'solid-js'
-import { MetaProvider, Title, Link } from '@solidjs/meta'
 import { A } from '@solidjs/router'
+import { MetaProvider, Title, Link } from '@solidjs/meta'
 import { useAuth } from 'context/AuthContext'
-import './Users.scss'
 
 interface User {
 	id: string
 	subject: string
-	// Add other properties if needed
 }
 
-// Define the API URL
 const API_URL = import.meta.env.VITE_SERVER_URL
 
-function Users() {
+export default function Users() {
 	const [users, setUsers] = createSignal<User[]>([])
 	const [loading, setLoading] = createSignal(false)
 	const [totalPages, setTotalPages] = createSignal(1)
@@ -50,7 +47,6 @@ function Users() {
 		fetchUsers(currentPage())
 	})
 
-	// Handle page change
 	const handlePageChange = (event: Event) => {
 		const selectedPage = (event.target as HTMLSelectElement).value
 		setCurrentPage(parseInt(selectedPage))
@@ -89,5 +85,3 @@ function Users() {
 		</MetaProvider>
 	)
 }
-
-export default Users

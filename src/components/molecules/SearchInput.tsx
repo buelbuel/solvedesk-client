@@ -1,13 +1,25 @@
-// components/molecules/SearchInput.tsx
-
 import { createSignal } from 'solid-js'
-import Input from 'components/atoms/Input'
 import { CgSearch } from 'solid-icons/cg'
+import Input from 'components/atoms/Input'
 import './SearchInput.scss'
 
-const SearchInput = (props: { onSearch: (term: string) => void }) => {
+/**
+ * SearchInput component for handling search input with an icon.
+ *
+ * @param {Object} props - Props object for SearchInput component.
+ * @param {Function} props.onSearch - Callback function invoked when search term changes.
+ * @returns {JSX.Element} - Rendered SearchInput component.
+ * @source components/molecules/SearchInput.tsx
+ */
+export default function SearchInput(props: { onSearch: (term: string) => void }) {
 	const [searchTerm, setSearchTerm] = createSignal('')
 
+	/**
+	 * Event handler for input change.
+	 * Updates the search term state and invokes the onSearch callback.
+	 *
+	 * @param {Event} event - Input change event object.
+	 */
 	const handleInputChange = (event: Event) => {
 		const target = event.target as HTMLInputElement
 		setSearchTerm(target.value)
@@ -33,5 +45,3 @@ const SearchInput = (props: { onSearch: (term: string) => void }) => {
 		</div>
 	)
 }
-
-export default SearchInput

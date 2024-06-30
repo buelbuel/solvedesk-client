@@ -1,4 +1,10 @@
-/** @source components/molecules/NavbarModal.scss */
+/**
+ * NavbarModal Component Styles
+ *
+ * Styles for the NavbarModal component, displaying a modal with categorized navigation items.
+ *
+ * @source src/components/molecules/NavbarModal.scss
+ */
 
 .navbar-modal {
 	.navbar-modal-categories {
@@ -16,3 +22,14 @@
 		}
 	}
 }
+
+/* Additional Classes Used in DOM Structure (Documenting Purpose) */
+
+/**
+ * .navbar-modal
+ *   |-- .navbar-modal-categories
+ *       |-- .navbar-modal-categories-list
+ *           |-- NavbarModalTitle
+ *           |-- NavbarModalItem
+ *               |-- If props include href, icon, label, and/or onClick
+ */

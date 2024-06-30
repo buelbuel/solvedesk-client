@@ -1,11 +1,6 @@
-// src/context/AuthContext.tsx
 import { createContext, useContext, createSignal, JSX } from 'solid-js'
 import { useNavigate } from '@solidjs/router'
 
-/**
- *
- * @source context/AuthContext.tsx
- */
 type AuthContextType = {
 	isAuthenticated: () => boolean
 	login: (email: string, password: string) => Promise<void>
@@ -22,9 +17,9 @@ interface AuthProviderProps {
 
 const defaultContext: AuthContextType = {
 	isAuthenticated: () => false,
-	login: async () => {},
-	refreshAccessToken: async () => {},
-	logout: () => {},
+	login: async () => { },
+	refreshAccessToken: async () => { },
+	logout: () => { },
 	loading: () => false,
 	error: () => ''
 }
@@ -51,19 +46,17 @@ export function AuthProvider(props: AuthProviderProps) {
 
 			if (!response.ok) {
 				const errorData = await response.json()
-				throw new Error(errorData.message || 'An unknown error occurred')
+				throw new Error(errorData.error || 'An unknown error occurred')
 			}
 
 			const data = await response.json()
+			const { accessToken } = data
 
-			const { accessToken, refreshToken } = data.token
-
-			if (!accessToken || !refreshToken) {
-				throw new Error('Access token or refresh token not provided')
+			if (!accessToken) {
+				throw new Error('Access token not provided')
 			}
 
 			localStorage.setItem('token', accessToken)
-			localStorage.setItem('refreshToken', refreshToken)
 			document.cookie = `token=${accessToken}`
 			setIsAuthenticated(true)
 			setLoading(false)
@@ -92,7 +85,7 @@ export function AuthProvider(props: AuthProviderProps) {
 				headers: {
 					'Content-Type': 'application/json'
 				},
-				body: JSON.stringify({ refreshToken })
+				body: JSON.stringify({ token: refreshToken })
 			})
 
 			if (!response.ok) {
@@ -100,8 +93,8 @@ export function AuthProvider(props: AuthProviderProps) {
 			}
 
 			const data = await response.json()
-			localStorage.setItem('token', data.accessToken)
-			document.cookie = `token=${data.accessToken}`
+			localStorage.setItem('token', data.token)
+			document.cookie = `token=${data.token}`
 			setIsAuthenticated(true)
 		} catch (err) {
 			logout()

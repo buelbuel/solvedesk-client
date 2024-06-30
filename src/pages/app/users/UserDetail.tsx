@@ -1,17 +1,15 @@
-import { A, useParams } from '@solidjs/router'
 import { createSignal, createEffect } from 'solid-js'
+import { A, useParams } from '@solidjs/router'
 import { MetaProvider, Title, Link } from '@solidjs/meta'
-import './UserDetail.scss'
 
 interface User {
 	email: string
 	firstName: string
-	// Add other properties if needed
 }
 
 const API_URL = import.meta.env.VITE_SERVER_URL
 
-const UserDetail = () => {
+export default function UserDetail() {
 	const params = useParams()
 	const [user, setUser] = createSignal<User | null>(null)
 	const [loading, setLoading] = createSignal(false)
@@ -66,5 +64,3 @@ const UserDetail = () => {
 		</MetaProvider>
 	)
 }
-
-export default UserDetail

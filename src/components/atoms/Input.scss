@@ -1,6 +1,14 @@
-/** @source components/atoms/Input.scss */
 @import 'src/assets/sass/variables';
 @import 'src/assets/sass/colors';
+
+/**
+ * Input Component Styles
+ *
+ * This stylesheet defines styles for the Input component.
+ * It includes styling for input fields with various states and color schemes.
+ *
+ * @source src/components/atoms/Input.scss
+ */
 
 .input {
 	display: block;
@@ -34,3 +42,9 @@
 		}
 	}
 }
+
+/* Additional Classes Used in DOM Structure (Documenting Purpose) */
+
+/**
+ * .input
+ */

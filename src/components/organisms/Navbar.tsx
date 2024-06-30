@@ -1,5 +1,3 @@
-// src/components/molecules/Navbar.tsx
-
 import { createSignal, onCleanup, onMount } from 'solid-js'
 import {
 	CgBriefcase,
@@ -25,20 +23,35 @@ import ModalCenter from 'components/atoms/ModalCenter'
 import NavbarModal from 'components/molecules/NavbarModal'
 import './Navbar.scss'
 
-const Navbar = () => {
-	const [openNavbarModalMenuModal, setOpenNavbarModalMenuModal] = createSignal(false)
-	const [openNavbarModalProfileModal, setOpenNavbarModalProfileModal] = createSignal(false)
+/**
+ * Navbar component for site navigation and user profile management.
+ *
+ * @source src/components/molecules/Navbar.tsx
+ * @returns JSX
+ */
+export default function Navbar() {
+	const [openNavbarModalMenu, setOpenNavbarModalMenu] = createSignal(false)
+	const [openNavbarModalProfile, setOpenNavbarModalProfile] = createSignal(false)
 	const [hasShadow, setHasShadow] = createSignal(false)
 	const { isAuthenticated, logout } = useAuth()
 
+	/**
+	 * Toggles the menu modal.
+	 */
 	const handleNavbarModalMenu = () => {
-		setOpenNavbarModalMenuModal(!openNavbarModalMenuModal())
+		setOpenNavbarModalMenu(!openNavbarModalMenu())
 	}
 
+	/**
+	 * Toggles the profile modal.
+	 */
 	const handleNavbarModalProfile = () => {
-		setOpenNavbarModalProfileModal(!openNavbarModalProfileModal())
+		setOpenNavbarModalProfile(!openNavbarModalProfile())
 	}
 
+	/**
+	 * Handles the scroll event to determine if shadow should be applied to navbar.
+	 */
 	const handleScroll = () => {
 		if (window.scrollY > 10) {
 			setHasShadow(true)
@@ -47,13 +60,16 @@ const Navbar = () => {
 		}
 	}
 
+	// Attach scroll event listener on component mount
 	onMount(() => {
 		window.addEventListener('scroll', handleScroll)
+		// Cleanup event listener on component unmount
 		onCleanup(() => {
 			window.removeEventListener('scroll', handleScroll)
 		})
 	})
 
+	// Define categories for menu and profile modals
 	const menuCategories = [
 		{
 			title: 'Support',
@@ -111,20 +127,22 @@ const Navbar = () => {
 					<img src={appLogo} class="logo" alt="SolveDesk Logo" />
 				</A>
 				<div class="navbar-modal-buttons">
+					{/* Toggle menu modal */}
 					<CgMenuGridO size={32} class="navbar-modal-button" onClick={handleNavbarModalMenu} />
+					{/* Toggle profile modal */}
 					<CgUser size={32} class="navbar-modal-button" onClick={handleNavbarModalProfile} />
 				</div>
 			</nav>
 
-			<ModalCenter open={openNavbarModalMenuModal()} setOpen={setOpenNavbarModalMenuModal}>
+			{/* Modal for menu categories */}
+			<ModalCenter open={openNavbarModalMenu()} setOpen={setOpenNavbarModalMenu}>
 				<NavbarModal categories={menuCategories} />
 			</ModalCenter>
 
-			<ModalCenter open={openNavbarModalProfileModal()} setOpen={setOpenNavbarModalProfileModal}>
+			{/* Modal for profile categories */}
+			<ModalCenter open={openNavbarModalProfile()} setOpen={setOpenNavbarModalProfile}>
 				<NavbarModal categories={profileCategories} />
 			</ModalCenter>
 		</header>
 	)
 }
-
-export default Navbar

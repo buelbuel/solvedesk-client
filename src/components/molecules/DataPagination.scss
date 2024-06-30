@@ -1,6 +1,13 @@
-/** @source components/molecules/DataPagination.scss */
-@import 'src/assets/sass/colors';
 @import 'src/assets/sass/variables';
+@import 'src/assets/sass/colors';
+
+/**
+ * DataPagination Component Styles
+ *
+ * Styles for the DataPagination component, which renders pagination controls.
+ *
+ * @source src/components/molecules/DataPagination.scss
+ */
 
 .pagination {
 	display: flex;
@@ -30,3 +37,11 @@
 		}
 	}
 }
+
+/* Additional Classes Used in DOM Structure (Documenting Purpose) */
+
+/**
+ * .pagination
+ *   |-- Fieldset (Page selector)
+ *   |-- Fieldset (Items per page selector)
+ */

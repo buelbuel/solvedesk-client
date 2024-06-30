@@ -26,8 +26,7 @@ const UserEdit = lazy(() => import('pages/app/users/UserEdit'))
 const Profile = lazy(() => import('pages/app/profile/ProfileDetail'))
 
 type RouteProps = {
-	children: JSX.Element | JSX.Element[]
-	index: boolean
+	children?: JSX.Element | JSX.Element[]
 }
 
 const AppRoute = (props: RouteProps) => (
@@ -46,13 +45,13 @@ render(
 	() => (
 		<Router>
 			<Route path="/">
-				<Route index component={FrontRoute}>
+				<Route component={FrontRoute}>
 					<Route path="/" component={Home} />
 					<Route path="/register" component={Register} />
 					<Route path="/login" component={Login} />
 				</Route>
 				<Route path="/app">
-					<Route index component={AppRoute}>
+					<Route component={AppRoute}>
 						<Route path="/" component={Dashboard} />
 						<Route path="/tickets">
 							<Route path="/" component={Tickets} />

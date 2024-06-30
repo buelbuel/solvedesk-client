@@ -1,15 +1,14 @@
-import { useParams, useNavigate } from '@solidjs/router'
 import { createSignal, createEffect } from 'solid-js'
+import { useParams, useNavigate } from '@solidjs/router'
 import { MetaProvider, Title, Link } from '@solidjs/meta'
 import './UserEdit.scss'
 
-const UserEdit = () => {
+export default function UserEdit() {
 	const params = useParams()
 	const navigate = useNavigate()
 	const [ticket, setTicket] = createSignal({ title: '', description: '' })
 
 	createEffect(() => {
-		// Fetch ticket by ID and set the state
 		const fetchTicket = async () => {
 			const response = await fetch(`/api/tickets/${params.id}`)
 			const data = await response.json()
@@ -69,5 +68,3 @@ const UserEdit = () => {
 		</MetaProvider>
 	)
 }
-
-export default UserEdit

@@ -1,6 +1,21 @@
-/** @source components/molecules/Fieldset.scss */
+/**
+ * Fieldset Component Styles
+ *
+ * Styles for the Fieldset component, which renders a labeled input field with optional children elements.
+ *
+ * @source src/components/molecules/Fieldset.scss
+ */
 
 .fieldset {
 	border: none;
 	padding: 1rem 0;
 }
+
+/* Additional Classes Used in DOM Structure (Documenting Purpose) */
+
+/**
+ * .fieldset
+ *   |-- Label
+ *   |-- Input (if inputType is provided)
+ *   |-- Children (optional)
+ */

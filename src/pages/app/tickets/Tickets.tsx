@@ -35,8 +35,6 @@ const ticketsConfig = {
 	)
 }
 
-function Tickets() {
+export default function Tickets() {
 	return <GenericCrudPage entityConfig={ticketsConfig} />
 }
-
-export default Tickets

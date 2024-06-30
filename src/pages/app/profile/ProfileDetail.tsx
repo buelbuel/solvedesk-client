@@ -1,19 +1,17 @@
 import { A, useParams } from '@solidjs/router'
 import { createSignal, createEffect } from 'solid-js'
 import { MetaProvider, Title } from '@solidjs/meta'
-import './ProfileDetail.scss'
 import Loading from 'components/atoms/Loading'
 import ErrorMessage from 'components/atoms/ErrorMessage'
 
 interface User {
 	email: string
 	firstName: string
-	// Add other properties if needed
 }
 
 const API_URL = import.meta.env.VITE_SERVER_URL
 
-const ProfileDetail = () => {
+export default function ProfileDetail() {
 	const params = useParams()
 	const [user, setUser] = createSignal<User | null>(null)
 	const [loading, setLoading] = createSignal(false)
@@ -67,5 +65,3 @@ const ProfileDetail = () => {
 		</MetaProvider>
 	)
 }
-
-export default ProfileDetail

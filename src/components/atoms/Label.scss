@@ -1,6 +1,14 @@
-/** @source components/atoms/Label.scss */
 @import 'src/assets/sass/variables';
 @import 'src/assets/sass/colors';
+
+/**
+ * Label Component Styles
+ *
+ * This stylesheet defines styles for the Label component.
+ * It includes styling for label elements with custom font size, line height, and font weight.
+ *
+ * @source src/components/atoms/Label.scss
+ */
 
 .label {
 	display: block;
@@ -8,3 +16,9 @@
 	line-height: 1.5em;
 	font-weight: 500;
 }
+
+/* Additional Classes Used in DOM Structure (Documenting Purpose) */
+
+/**
+ * .label
+ */

@@ -1,15 +1,13 @@
-import { useParams, useNavigate } from '@solidjs/router'
 import { createSignal, createEffect } from 'solid-js'
+import { useParams, useNavigate } from '@solidjs/router'
 import { MetaProvider, Title } from '@solidjs/meta'
-import './TicketsEdit.scss'
 
-const TicketsEdit = () => {
+export default function TicketsEdit() {
 	const params = useParams()
 	const navigate = useNavigate()
 	const [ticket, setTicket] = createSignal({ title: '', description: '' })
 
 	createEffect(() => {
-		// Fetch ticket by ID and set the state
 		const fetchTicket = async () => {
 			const response = await fetch(`/api/tickets/${params.id}`)
 			const data = await response.json()
@@ -20,7 +18,6 @@ const TicketsEdit = () => {
 
 	const handleSubmit = async (event: { preventDefault: () => void }) => {
 		event.preventDefault()
-		// Update ticket
 		await fetch(`/api/tickets/${params.id}`, {
 			method: 'PUT',
 			headers: {
@@ -69,5 +66,3 @@ const TicketsEdit = () => {
 		</MetaProvider>
 	)
 }
-
-export default TicketsEdit

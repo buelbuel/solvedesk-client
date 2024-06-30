@@ -1,4 +1,18 @@
-/** @source components/molecules/FormInput.scss */
+/**
+ * FormInput Component Styles
+ *
+ * Styles for the FormInput component, which wraps the Input component with additional styling.
+ *
+ * @source src/components/molecules/FormInput.scss
+ */
 
 .form-input-field {
+	//
 }
+
+/* Additional Classes Used in DOM Structure (Documenting Purpose) */
+
+/**
+ * .form-input-field
+ *   |-- Input
+ */

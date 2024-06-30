@@ -1,0 +1,19 @@
+{
+	"entryPoints": [
+		"src/index.tsx",
+		"src/components/**/*.tsx",
+		"src/components/**/*.d.ts",
+		"src/context/**/*.tsx",
+		"src/hooks/**/*.ts",
+		"src/pages/**/*.tsx",
+		"src/*.ts"
+	],
+	"exclude": ["**/*.spec.ts", "**/*.test.ts"],
+	"out": "docs",
+	"excludePrivate": true,
+	"excludeProtected": true,
+	"excludeExternals": true,
+	"tsconfig": "tsconfig.json",
+	"theme": "default",
+	"disableSources": false
+}

@@ -1,6 +1,14 @@
-/** @source components/molecules/ModalCenter.scss */
 @import 'src/assets/sass/variables';
 @import 'src/assets/sass/colors';
+
+/**
+ * ModalCenter Component Styles
+ *
+ * This stylesheet defines styles for the ModalCenter component.
+ * It includes positioning, animation, and appearance properties for a centered modal.
+ *
+ * @source src/components/atoms/ModalCenter.scss
+ */
 
 .modal-center {
 	position: fixed;
@@ -26,3 +34,21 @@
 		transform: translate(-50%, -50%) scale(1);
 	}
 }
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 1;
+	cursor: pointer;
+}
+
+/* Additional Classes Used in DOM Structure (Documenting Purpose) */
+
+/**
+ * .modal-center
+ *   |-- .overlay
+ */

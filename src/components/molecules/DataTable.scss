@@ -1,6 +1,13 @@
-/** @source components/molecules/DataTable.scss */
 @import 'src/assets/sass/variables';
 @import 'src/assets/sass/colors';
+
+/**
+ * DataTable Component Styles
+ *
+ * Styles for the DataTable component, which renders a data table with loading state and pagination.
+ *
+ * @source src/components/molecules/DataTable.scss
+ */
 
 .data-table {
 	background-color: map-get($bg-colors, light);
@@ -24,3 +31,15 @@
 		border: 1px solid map-get($bg-colors, light-500);
 	}
 }
+
+/* Additional Classes Used in DOM Structure (Documenting Purpose) */
+
+/**
+ * .data-table
+ *   |-- .data-table-wrapper
+ *     |-- .loading
+ *     |-- .data-table-wrapper-table
+ *       |-- DataTableHeader component
+ *       |-- DataTableBody component
+ *       |-- DataTableFooter component
+ */

@@ -1,6 +1,13 @@
-/** @source components/molecules/DataTableRow.scss */
 @import 'src/assets/sass/variables';
 @import 'src/assets/sass/colors';
+
+/**
+ * DataTableRow Component Styles
+ *
+ * Styles for the DataTableRow component, which renders a single row in a data table.
+ *
+ * @source src/components/molecules/DataTableRow.scss
+ */
 
 .data-table-row {
 	cursor: pointer;
@@ -34,3 +41,14 @@
 		}
 	}
 }
+
+/* Additional Classes Used in DOM Structure (Documenting Purpose) */
+
+/**
+ * .data-table-row
+ *   |-- .data-table-row-cell (repeats based on columns)
+ *   |-- .data-table-row-cell (for actions)
+ *     |-- .data-table-row-actions
+ *       |-- Button (Edit)
+ *       |-- Button (Preview)
+ */

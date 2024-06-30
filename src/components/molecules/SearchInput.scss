@@ -1,17 +1,33 @@
-/** @source components/molecules/SearchInput.scss */
 @import 'src/assets/sass/variables';
 @import 'src/assets/sass/colors';
 
+/**
+ * Search Input Component Styles
+ *
+ * This stylesheet defines styles for the SearchInput component.
+ * It includes styling for the search input field, icon, and their container.
+ *
+ * @source src/components/molecules/SearchInput.scss
+ */
+
+/* Container for the entire SearchInput component */
 .search-input {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 
+	/* Styling for the search icon */
 	.search-input-icon {
 		margin: 0 1rem;
 	}
-
-	.search-input-field {
-		
-	}
 }
+
+/* Additional Classes Used in DOM Structure (Documenting Purpose) */
+
+/**
+ * .search-input
+ *   |-- .search-input-icon
+ *   |-- .search-input-field (from Input component)
+ *       |-- #search-input-field (HTML id for Input component)
+ *       |-- .sr-only (visually hidden label)
+ */

@@ -1,6 +1,14 @@
-/** @source components/molecules/Button.scss */
 @import 'src/assets/sass/variables';
 @import 'src/assets/sass/colors';
+
+/**
+ * Button Component Styles
+ *
+ * This stylesheet defines styles for the Button component.
+ * It includes styling for primary, secondary, and light variants.
+ *
+ * @source src/components/atoms/Button.scss
+ */
 
 .button {
 	border-radius: 0.5rem;
@@ -13,6 +21,7 @@
 	display: inline-flex;
 	gap: 0.25rem;
 
+	/* Primary Variant */
 	&.primary {
 		border: none;
 		filter: $shadow-sm;
@@ -34,6 +43,7 @@
 		}
 	}
 
+	/* Secondary Variant */
 	&.secondary {
 		border: none;
 		filter: $shadow-sm;
@@ -55,6 +65,7 @@
 		}
 	}
 
+	/* Light Variant */
 	&.light {
 		border-width: 1px;
 		border-style: solid;
@@ -83,3 +94,12 @@
 		outline: 2px auto -webkit-focus-ring-color;
 	}
 }
+
+/* Additional Classes Used in DOM Structure (Documenting Purpose) */
+
+/**
+ * .button
+ *   |-- .primary
+ *   |-- .secondary
+ *   |-- .light
+ */

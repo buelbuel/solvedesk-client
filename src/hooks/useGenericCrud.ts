@@ -1,6 +1,6 @@
 import { createSignal, createEffect, createMemo } from 'solid-js'
 
-export function useGenericCrud(entityConfig: {
+export default function useGenericCrud(entityConfig: {
 	pageTitle?: any
 	entityName: any
 	columns?: any

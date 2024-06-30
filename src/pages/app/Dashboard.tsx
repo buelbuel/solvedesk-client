@@ -1,10 +1,6 @@
-import { createSignal } from 'solid-js'
 import { MetaProvider, Title, Link } from '@solidjs/meta'
-import viteLogo from '/vite.svg'
-import './Dashboard.scss'
 
-function Dashboard() {
-	const [count, setCount] = createSignal(0)
+export default function Dashboard() {
 	return (
 		<MetaProvider>
 			<Title>Dashboard SolveDesk</Title>
@@ -18,5 +14,3 @@ function Dashboard() {
 		</MetaProvider>
 	)
 }
-
-export default Dashboard

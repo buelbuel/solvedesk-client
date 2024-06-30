@@ -1,8 +1,19 @@
-/** @source components/molecules/DataTableBody.scss */
-@import 'src/assets/sass/variables';
-@import 'src/assets/sass/colors';
+/**
+ * DataTableBody Component Styles
+ *
+ * Styles for the DataTableBody component, which renders the body of a data table.
+ *
+ * @source src/components/molecules/DataTableBody.scss
+ */
 
 .data-table-body {
 	//
-	font: inherit;
 }
+
+/* Additional Classes Used in DOM Structure (Documenting Purpose) */
+
+/**
+ * .data-table-body
+ *   |-- tr (repeats based on data length)
+ *     |-- DataTableRow component (repeats based on data length)
+ */

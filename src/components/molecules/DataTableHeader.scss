@@ -1,6 +1,13 @@
-/** @source components/molecules/DataTableHeader.scss */
 @import 'src/assets/sass/variables';
 @import 'src/assets/sass/colors';
+
+/**
+ * DataTableHeader Component Styles
+ *
+ * Styles for the DataTableHeader component, which renders the header of a data table.
+ *
+ * @source src/components/molecules/DataTableHeader.scss
+ */
 
 .data-table-header {
 	background-color: map-get($bg-colors, light-100);
@@ -18,3 +25,12 @@
 		}
 	}
 }
+
+/* Additional Classes Used in DOM Structure (Documenting Purpose) */
+
+/**
+ * .data-table-header
+ *   |-- .data-table-header-row
+ *     |-- th (repeats based on columns)
+ *     |-- th (for Actions)
+ */

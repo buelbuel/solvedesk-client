@@ -1,6 +1,14 @@
-/** @source components/molecules/ModalOverflow.scss */
 @import 'src/assets/sass/variables';
 @import 'src/assets/sass/colors';
+
+/**
+ * ModalOverflow Component Styles
+ *
+ * This stylesheet defines styles for the ModalOverflow component.
+ * It includes positioning, sizing, and appearance properties for the modal dialog.
+ *
+ * @source src/components/atoms/ModalOverflow.scss
+ */
 
 .modal-overflow {
 	position: fixed;
@@ -16,3 +24,21 @@
 	filter: $shadow-xl;
 	z-index: 2;
 }
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 1;
+	cursor: pointer;
+}
+
+/* Additional Classes Used in DOM Structure (Documenting Purpose) */
+
+/**
+ * .modal-overflow
+ *   |-- .overlay
+ */

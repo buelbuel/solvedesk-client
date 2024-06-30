@@ -1,9 +1,8 @@
 import { A } from '@solidjs/router'
 import { MetaProvider, Title, Link } from '@solidjs/meta'
 import LoginForm from 'components/organisms/LoginForm'
-import './Login.scss'
 
-function Login() {
+export default function Login() {
 	return (
 		<MetaProvider>
 			<Title>Login SolveDesk</Title>
@@ -19,5 +18,3 @@ function Login() {
 		</MetaProvider>
 	)
 }
-
-export default Login

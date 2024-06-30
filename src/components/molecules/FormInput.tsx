@@ -1,15 +1,19 @@
-// components/molecules/FormInput.tsx
-import Input from 'components/atoms/Input';
-import './FormInput.scss';
-import { JSX } from 'solid-js';
+import { JSX } from 'solid-js'
+import Input from 'components/atoms/Input'
+import './FormInput.scss'
 
 interface FormInputProps extends JSX.InputHTMLAttributes<HTMLInputElement> {
-  className?: string;
+	className?: string
 }
 
-const FormInput = (props: FormInputProps) => {
-  const { className, ...rest } = props;
-  return <Input {...rest} className={`form-input-field ${className || ''}`} />;
-};
-
-export default FormInput;
+/**
+ * FormInput component that wraps the Input component with additional styling.
+ *
+ * @param {FormInputProps} props - The properties passed to the FormInput component.
+ * @returns {JSX.Element} - Rendered FormInput component.
+ * @source components/molecules/FormInput.tsx
+ */
+export default function FormInput(props: FormInputProps): JSX.Element {
+	const { className, ...rest } = props
+	return <Input {...rest} className={`form-input-field ${className || ''}`} />
+}

@@ -1,8 +1,25 @@
-/** @source components/templates/FrontTemplate.scss */
-@import 'src/assets/sass/variables';
-@import 'src/assets/sass/colors';
+/**
+ * FrontTemplate Component Styles
+ *
+ * This stylesheet defines styles for the FrontTemplate component,
+ * which serves as the template for front-end pages.
+ *
+ * @source src/components/templates/FrontTemplate.scss
+ */
 
 .front-template {
-	.content {
-	}
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
+
+.content {
+	flex: 1;
+}
+
+/* Additional Classes Used in DOM Structure (Documenting Purpose) */
+
+/**
+ * .front-template
+ *   |-- .content
+ */
